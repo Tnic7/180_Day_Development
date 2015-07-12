@@ -1,0 +1,156 @@
+body{
+color:#ffffff;
+margin:0;
+}
+
+a{
+text-decoration:none;
+color:#48D48D;
+}
+
+.nav{
+text-decoration:none;
+color:white;
+font-family:Dosis;
+}
+
+.current{
+background-color: #48D48D;
+color: black;
+padding-bottom:12px;
+}
+
+a:hover{
+color:#349866;
+}
+
+#nav{
+border-bottom: 40px solid black;
+border-left: 20px solid transparent;
+border-right: 20px solid transparent;
+height: 0;
+width: 435px;
+margin-top:-40px;
+color:white;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+ul{
+list-style-type:none;
+margin-left:0;
+display:flex;
+width: 800px;
+margin-top:40px;
+padding-top:0px;
+}
+
+li{
+padding-right:35px;
+padding-left:10px;
+padding-top:10px;
+}
+
+li:first-child{
+padding-left:15px
+}
+
+#header{
+background-color:#48D48D;
+width:100%;
+height:330px;
+border-bottom:solid black 2px;
+border-top: solid black 2px;
+padding-top:0px;
+}
+
+#subheader{
+width:800px;
+height:330px;
+font-size:22px;
+background-color:#349866;
+margin: 0 auto;
+}
+
+p{
+padding-left:20px;
+padding-right:20px;
+}
+
+h1{
+margin-top:0px;
+font-size:70px;
+color:black;
+padding-left:20px;
+margin-bottom:-10px;
+}
+h1:after {
+	content: "Hello!";
+	position: relative; left: -161px; top: 2px;
+	color: white;   
+}
+
+html{
+font-family: Dosis;
+}
+
+#sites{
+font-size:35px;
+width:700px;
+margin: 0 auto;
+color:black;
+}
+
+#day{
+top:70px;
+left:170px;
+position:absolute;
+background-color:#349866;
+width:200px;
+height: 200px;
+font-family: 'Teko', sans-serif;
+font-size:120px;
+display:flex;
+justify-content: center;
+align items: center;
+padding-top:30px;
+border-bottom: solid black 20px;
+border-right: solid 20px #48D48D;
+border-top: solid black 20px;
+border-left: solid 20px #48D48D;
+}
+
+h2{
+margin-top:0px;
+font-size:70px;
+color:white;
+text-align: center;
+vertical-align: middle;
+line-height: 330px;
+}
+
+
+h3{
+margin-top:0;
+padding-top:100px;
+text-align: center;
+vertical-align: middle;
+line-height: 70px;
+font-size:70px;
+margin-bottom:0px;
+}
+
+h4{
+margin-top:0px;
+font-size:70px;
+width:800px;
+height:100px;
+text-align: center;
+vertical-align: middle;
+color:#48D48D;
+}
+
+
+
+
+
