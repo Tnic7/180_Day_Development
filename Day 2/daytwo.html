@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta userset="UTF-8">
+	<title>Document</title>
+	<link type="text/css" rel="stylesheet" href="daytwo.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	
+</head>
+<body>
+
+	<div id="nav">
+		<ul>
+			<li class="current"> <a class="nav" href="index.html"> Home </a> </li>
+			<li> <a class="nav" href="http://www.dinnerdev.com" target="_blank"> Blog </a> </li>
+			<li> <a class="nav" href="resume.html"> Resume </a> </li>
+			<li> <a class="nav" href="projects.html"> Projects </a> </li>
+			<li> <a class="nav" href="https://github.com/Tnic7" target="_blank"> GitHub </a> </li>
+		<ul>
+	</div>
+
+	<div id="board">
+		<div id="one"></div>
+		<div id="two"></div>
+		<div id="three"></div>
+		<div id="four"></div>
+		<div id="five"></div>
+		<div id="six"></div>
+		<div id="seven"></div>
+		<div id="eight"></div>
+		<div id="nine"></div>
+	</div>
+	
+	<select id="char">
+		<option id="holder"> Choose your letter. </option>
+		<option id="opt1"> X </option>
+		<option id="opt2"> O </option>
+	</select>
+	
+	<br />
+	
+	<button id="submit">
+	Submit.
+	</button>
+	
+	<br />
+	
+	<script>
+		var user;
+		var sel = document.getElementById("char");
+		var holder = document.getElementById("holder");
+		var opt1 = document.getElementById("opt1");
+		var opt2 = document.getElementById("opt2");
+		var button = document.getElementById("submit");
+		var enemy = new Array();
+		
+		var grid = new Array();
+		grid[0] = document.getElementById("one");
+		grid[1] = document.getElementById("two");
+		grid[2] = document.getElementById("three");
+		grid[3] = document.getElementById("four");
+		grid[4] = document.getElementById("five");
+		grid[5] = document.getElementById("six");
+		grid[6] = document.getElementById("seven");
+		grid[7] = document.getElementById("eight");
+		grid[8] = document.getElementById("nine");
+		
+		button.onclick = function() {
+			user = sel.value;
+			button.style.display="none";
+			var para = document.createElement('P');
+			var t = document.createTextNode("Make your first move!"); 
+			para.appendChild(t);
+			document.body.appendChild(para);
+			para.setAttribute("id","firstmove");
+		}
+		
+		function enemyChoices(){
+		for(var i = 0; i < 9; i++){
+			// This checks if the particular grid cell contains a class, if not, its a possible move.
+			if (!(grid[i].classList.contains('x_mark') || grid[i].classList.contains('o_mark'))){
+				enemy.push(grid[i]);
+			}
+		}
+		if (enemy.length == 0){
+		alert("Yeah. I'm pretty sure you won. Don't feel too proud.");
+		}
+		}
+		
+		grid[0].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[0].classList.contains('x_mark') || grid[0].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[0].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[0].setAttribute("class", "o_mark");
+			} else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[1].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[1].classList.contains('x_mark') || grid[1].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[1].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[1].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[2].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[2].classList.contains('x_mark') || grid[2].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[2].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[2].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[3].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[3].classList.contains('x_mark') || grid[3].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[3].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[3].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[4].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[4].classList.contains('x_mark') || grid[4].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[4].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[4].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[5].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[5].classList.contains('x_mark') || grid[5].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[5].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[5].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor((Math.random() * enemy.length))].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor((Math.random() * enemy.length))].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[6].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[6].classList.contains('x_mark') || grid[6].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[6].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[6].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[7].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[7].classList.contains('x_mark') || grid[7].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[7].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[7].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		grid[8].onclick = function(){
+		//gives you crap if you select a preselected square
+			if(grid[8].classList.contains('x_mark') || grid[8].classList.contains('o_mark')){
+				alert("Oh man, you thought you got me huh? Try another square smart aleck.");
+				return 0;
+			}
+		//check if you win
+		//place X marker
+			if(user=="X"){
+			grid[8].setAttribute("class", "x_mark");
+			} else if(user=="O"){
+			grid[8].setAttribute("class", "o_mark");
+			}else {
+			return alert("Dude. Choose a letter. Jeez.");
+			}
+			//opponent plays
+			//choices are updated:
+			enemy = [];
+			enemyChoices();
+			if(user=="X"){
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","o_mark");
+			} else {
+			enemy[Math.floor(Math.random() * enemy.length)].setAttribute("class","x_mark");
+			}
+			
+		}
+		
+		
+		
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
