@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reaction Test</title>
+	<link type="text/css" rel="stylesheet" href="daythree.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+	<div id="nav">
+		<ul>
+			<li class="current"> <a class="nav" href="index.html"> Home </a> </li>
+			<li> <a class="nav" href="http://www.dinnerdev.com" target="_blank"> Blog </a> </li>
+			<li> <a class="nav" href="resume.html"> Resume </a> </li>
+			<li> <a class="nav" href="projects.html"> Projects </a> </li>
+			<li> <a class="nav" href="https://github.com/Tnic7" target="_blank"> GitHub </a> </li>
+		<ul>
+	</div>
+	
+	
+		<div id="circle"></div>
+		<br />
+		<p id="go"> Click the circle to begin! </p>
+	
+	<script>
+	
+	var circle = document.getElementById("circle");
+	var initial;
+	var clicked;
+	var speed = document.getElementById("go");
+	var delayCount = 0;
+	var clickCount = 0;
+	var avg;	
+		
+	function create() {
+		var rand = Math.random()*3000;
+		var randomColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+		setTimeout(function(){ 
+			circle.style.display="block"; 
+			initial = Date.now(); 
+			circle.style.backgroundColor=randomColor + "";
+			circle.style.left=Math.random()*100 +"%" ;
+			circle.style.top=Math.random()*100 +"%" ;
+			}, rand);
+	}
+	
+	circle.onclick = function() {
+		clicked = Date.now();
+		delay = 0;
+		if (clickCount >0){
+			var delay = (clicked-initial)/1000;
+		}
+		delayCount = delayCount + delay;
+		clickCount = clickCount + 1;
+		avg = delayCount/clickCount;
+		speed.innerHTML= "Avg response time:" + "<br />" + avg.toFixed(2) + "";
+		circle.style.display = "none";
+		if (clickCount > 10){
+			speed.innerHTML = "10 Round Avg:" + "<br />" + avg.toFixed(2);
+			if (avg < 0.65){
+				var suck = document.createElement("P");
+				var text = document.createTextNode("GO BE PRODUCTIVE OR SOMETHING.");
+				suck.appendChild(text);
+				suck.setAttribute("class","yousuck");
+				document.body.appendChild(suck);
+			} else {
+				var suck = document.createElement("P");
+				var text = document.createTextNode("HA! GOT EEEEEM. Not quite quick enough!");
+				suck.appendChild(text);
+				suck.setAttribute("class","yousuck");
+				document.body.appendChild(suck);
+			}
+			return 0;
+		}
+		create();
+	}
+	
+	</script>
+	
+</body>
+</html>
+
+
+
+
